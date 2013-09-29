@@ -1,0 +1,48 @@
+<?xml version="1.0" ?> 
+<project name = "BaNCSProject" default="package">
+<property file="ftp.properties"/>
+
+
+<target name ="init">
+<mkdir dir="build/classes" />
+<mkdir dir ="dist" />
+    </target>
+
+
+<target name="compile" depends ="init">
+   
+ 
+   <javac srcdir="E:/BR/ant-practice/src" includeantruntime="false" 
+   destdir ="build/classes"/>
+   
+   </target>
+
+   
+   
+   
+
+<target name="package" depends="compile">
+   <zip destfile ="dist/project.zip"
+   basedir ="build/classes" />
+
+      </target>
+   
+  <!--
+  <target name="upload" depends="package">
+   
+  <ftp server ="${ftpserver}" 
+   userid ="${userid}"
+   password ="${password}" >
+   <fileset dir="dist"/>
+   </ftp>
+   
+ -->
+   
+   
+  
+   </target>
+   
+   
+
+
+</project>
